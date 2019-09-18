@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { CrisprAttempt } from '../../../../model/production/crispr/crispr-attempt';
 
 @Component({
@@ -14,22 +14,11 @@ export class CrisprAttemptComponent implements OnInit {
   @Input() crisprAttempt: CrisprAttempt;
   @Input() canUpdatePlan: boolean;
 
-  @Output() modifiedAttemptEmmiter = new EventEmitter<any>();
-
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.editCrisprAttempt = this.formBuilder.group({
     });
-  }
-
-  notifyCrisprAttemptChanged() {
-    this.modifiedAttemptEmmiter.emit(this.crisprAttempt);
-  }
-
-  onAttemptChangedByChildren(e) {
-    console.log('CrisprAttemptComponent changed...');
-    this.notifyCrisprAttemptChanged();
   }
 
 }
