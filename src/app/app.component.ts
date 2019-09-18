@@ -11,8 +11,8 @@ import {environment} from '../environments/environment.prod';
 })
 export class AppComponent implements OnInit {
   title = 'web-production-tracker';
-  configLoaded: boolean = false;
-  appConfigPath: string = '/assets/appConfig.json';
+  configLoaded = false;
+  appConfigPath = '/assets/appConfig.json';
 
   constructor(private http: HttpClient) {}
 
