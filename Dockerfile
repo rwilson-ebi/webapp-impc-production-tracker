@@ -39,5 +39,8 @@ RUN rm -rf /usr/share/nginx/html/*
 COPY --from=build-stage /app/dist/out/ /usr/share/nginx/html
 
 ## startup.sh script is launched at container run
-ADD docker/startup.sh /startup.sh
+COPY docker/startup.sh /
+
+RUN ["chmod", "+x", "/startup.sh"]
+
 CMD ["/startup.sh"]
