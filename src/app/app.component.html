@@ -2,3 +2,6 @@
   <app-ng7-bootstrap-breadcrumb></app-ng7-bootstrap-breadcrumb>
   <router-outlet></router-outlet>
   <app-footer></app-footer>
+  <div *ngIf="!configLoaded" class="loading-bar">
+    <h3>Loading configuration please wait.......</h3>
+  </div>
