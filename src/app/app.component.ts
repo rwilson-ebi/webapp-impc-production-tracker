@@ -20,20 +20,14 @@ export class AppComponent implements OnInit {
     this.loadRuntimeDependencies();
   }
 
-  private loadRuntimeDependencies(){
-    setTimeout(() => {
-      this.http.get(this.appConfigPath)
+  private loadRuntimeDependencies() {
+    this.http.get(this.appConfigPath)
         .subscribe((config: JSON) => {
           this.overrideStaticConfiguration(config);
           this.configLoaded = true;
+        }, error => {
+          console.log('Error: Problem obtaining the appConfig configuration');
         });
-    }, 5000);
-  }
-
-  private configMissingErrorHandler(error: Response | any){
-    console.warn('runtime config warning');
-    this.configLoaded = true;
-    return Observable.prototype;
   }
 
   private overrideStaticConfiguration(configObject: JSON) {
