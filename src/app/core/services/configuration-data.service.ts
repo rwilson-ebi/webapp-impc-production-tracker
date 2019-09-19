@@ -15,7 +15,7 @@ export class ConfigurationDataService {
   // Returns an object with configuration information: The available work units, work groups, priorities, plan types, etc.
   private getConfiguration() {
     console.log('environment.baseUrl:');
-    console.log(`${environment.baseUrl}`git);
+    console.log(`${environment.baseUrl}`);
     return this.http.get<ConfigurationData>(`${environment.baseUrl}/api/conf`);
   }
 
