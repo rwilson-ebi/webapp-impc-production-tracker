@@ -38,4 +38,6 @@ RUN rm -rf /usr/share/nginx/html/*
 ## From 'builder' stage copy the artifacts in dist folder to default nginx public folder
 COPY --from=build-stage /app/dist/out/ /usr/share/nginx/html
 
-CMD ["nginx", "-g", "daemon off;"]
+## startup.sh script is launched at container run
+ADD docker/startup.sh /startup.sh
+CMD ["/startup.sh"]

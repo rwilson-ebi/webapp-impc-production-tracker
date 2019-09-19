@@ -37,7 +37,11 @@ export class AppComponent implements OnInit {
   }
 
   private overrideStaticConfiguration(configObject: JSON) {
-    const key = 'apiRootUrl;'
-    environment.baseUrl = configObject[ key ];
+    const key = 'apiRootUrl';
+    if (configObject[ key ] === '${API_URL}') {
+      console.log('Empty API_ROOT_URL ');
+    } else {
+      environment.baseUrl = configObject[key];
+    }
   }
 }
