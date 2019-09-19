@@ -36,6 +36,7 @@ export class AppComponent implements OnInit {
       console.log('Empty API_ROOT_URL ');
     } else {
       environment.baseUrl = configObject[key];
+      console.log(environment);
     }
   }
 }
