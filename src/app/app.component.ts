@@ -36,7 +36,8 @@ export class AppComponent implements OnInit {
     return Observable.prototype;
   }
 
-  private overrideStaticConfiguration(configObject: JSON){
-    environment.baseUrl = configObject[ "apiRootUrl" ];
+  private overrideStaticConfiguration(configObject: JSON) {
+    const key = 'apiRootUrl;'
+    environment.baseUrl = configObject[ key ];
   }
 }
